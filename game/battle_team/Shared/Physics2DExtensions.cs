@@ -14,13 +14,14 @@ namespace BattleTeam.Shared
 	public static class Physics2DExtensions
 	{
 		/// <summary>
-		/// Gets whether or not the rectangle colliders intersect
+		/// Gets whether or not the rectangle colliders intersect. This is based off multiple
+		/// Separated Axis Theorm tutorials online, but optimized/coded for rectangles.
 		/// </summary>
 		/// <param name="rectCollider">The given collider</param>
 		/// <param name="otherCollider">The other collider</param>
 		/// <param name="mtv">
-		/// The minimum translation vector, the smallest vector that can move <paramref name="otherCollider"/> out of
-		/// <paramref name "rectCollider"/>.
+		/// The minimum translation vector, the smallest vector that can move <paramref name="rectCollider"/> out of
+		/// <paramref name "otherCollider"/>.
 		/// </param>
 		/// <returns>true if there's an intersection, otherwise false</returns>
 		public static bool Intersects(this RectangleCollider rectCollider, RectangleCollider otherCollider, out Vector2? mtv)
@@ -53,6 +54,7 @@ namespace BattleTeam.Shared
 				}
 			}
 
+			// A little bit of a hacky way of making sure I'm always pushing in the right direction...
 			if (Vector2.Dot(rectCollider.Transform2D.Position - otherCollider.Transform2D.Position, smallestOverlapAxis) < 0)
 			{
 				smallestOverlapAxis = -smallestOverlapAxis;
@@ -78,9 +80,14 @@ namespace BattleTeam.Shared
 			return new Projection(min, max);
 		}
 
-		// Since a rectangle is a type of parallelogram, I only need to get two axes - the perpendicular ones. In the
-		//   more general case, I would get the normals of two adjecent edges.
-		// This function assumes the "GetPoints2D()" method is ordered (first and second points are an edge, second and third are an edge, etc)
+		/// <summary>
+		/// Since a rectangle is a type of parallelogram, I only need to get two axes - two adjacent ones. In the
+		/// more general case, I would get the normals of all the edges in the convex polygon.
+		/// This function assumes the "GetPoints2D()" method is ordered (first and second points are an edge,
+		/// second and third are an edge, etc)
+		/// </summary>
+		/// <param name="rectCollider">The <see cref="RectangleCollider"/> to get all testing axes</param>
+		/// <returns>An <see cref="IEnumerable{T}"/> that needs to be tested.</returns>
 		private static IEnumerable<Vector2> GetTestingAxes(RectangleCollider rectCollider)
 		{
 			Vector2 edge1 = rectCollider.GetPoints2D()[1] - rectCollider.GetPoints2D()[0];
