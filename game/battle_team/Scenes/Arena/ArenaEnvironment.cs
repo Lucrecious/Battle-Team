@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BattleTeam.Entities;
+using BattleTeam.PythonComponents.Team;
 using WaveEngine.Framework;
 
 namespace BattleTeam.Scenes.Arena
@@ -18,7 +19,9 @@ namespace BattleTeam.Scenes.Arena
 
 		internal ImmutableArray<Entity> Walls { get; }
 
-		internal ArenaEnvironment()
+		internal ImmutableArray<Entity> Characters { get; }
+
+		internal ArenaEnvironment(List<Team> teams)
 		{
 			this.TopWall = Statics.CreateTopWall();
 			this.BottomWall = Statics.CreateBottomWall();
@@ -26,6 +29,26 @@ namespace BattleTeam.Scenes.Arena
 			this.LeftWall = Statics.CreateLeftWall();
 
 			this.Walls = ImmutableArray.Create(this.TopWall, this.BottomWall, this.RightWall, this.LeftWall);
+
+			this.Characters = this.GetCharactersFromMembers(teams);
+		}
+
+		private ImmutableArray<Entity> GetCharactersFromMembers(List<Team> teams)
+		{
+			List<Entity> characters = new List<Entity>();
+
+			foreach (Team team in teams)
+			{
+				if (team.GetMembers().GetLength() > 0)
+				{
+					for (int i = 0; i < team.GetMembers().GetLength(); ++i)
+					{
+						characters.Add(Entities.Characters.GetCharacter(team.GetMembers().Get(i)));
+                    }
+				}
+			}
+
+			return characters.ToImmutableArray();
 		}
 	}
 }

@@ -10,6 +10,7 @@ using WaveEngine.Common.Math;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
 using WaveEngine.Framework.Physics2D;
+using BattleTeam.Shared;
 
 namespace BattleTeam.Scenes.Arena
 {
@@ -21,7 +22,7 @@ namespace BattleTeam.Scenes.Arena
 
 		private bool moduleInitialized = false;
 
-		internal ArenaBehavior(ArenaEnvironment environment, World world, params Team[] teams)
+		internal ArenaBehavior(ArenaEnvironment environment, World world, List<Team> teams)
 		{
 			this.environment = environment;
 			this.world = world;
@@ -41,9 +42,35 @@ namespace BattleTeam.Scenes.Arena
 				this.InitializeWorld();
 			}
 
+			this.BoundMembersByWalls();
+
 			foreach (Team team in this.teams)
 			{
 				team.ResolveMessages();
+			}
+		}
+
+		private void BoundMembersByWalls()
+		{
+			foreach (Entity wall in this.environment.Walls)
+			{
+				var wallCollider = wall.FindComponent<RectangleCollider>();
+				foreach (Entity member in this.environment.Characters)
+				{
+					var memberCollider = member.FindComponent<RectangleCollider>();
+
+					this.PushMemberOutOfWall(member, memberCollider, wallCollider);
+				}
+			}
+		}
+
+		private void PushMemberOutOfWall(Entity member, RectangleCollider memberCollider, RectangleCollider wallCollider)
+		{
+			Vector2? pushOut;
+
+			if (memberCollider.Intersects(wallCollider, out pushOut))
+			{
+				memberCollider.Transform2D.Position += (Vector2)pushOut;
 			}
 		}
 

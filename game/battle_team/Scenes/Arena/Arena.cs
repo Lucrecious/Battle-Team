@@ -29,15 +29,7 @@ namespace BattleTeam.Scenes.Arena
 
 		protected override void CreateScene()
 		{
-			List<Entity> Walls = new List<Entity>();
 			this.EntityManager.Add(Cameras.FixedCamera);
-
-			var environment = new ArenaEnvironment();
-
-			this.EntityManager.Add(environment.TopWall);
-			this.EntityManager.Add(environment.BottomWall);
-			this.EntityManager.Add(environment.LeftWall);
-			this.EntityManager.Add(environment.RightWall);
 
 			List<Team> teams = new List<Team>();
 			World world = new World();
@@ -46,20 +38,13 @@ namespace BattleTeam.Scenes.Arena
 			var scope = this.engine.CreateScope();
 			var script = this.engine.CreateScriptSourceFromFile(@"C:\BattleTeam\Test.py");
 
-			script.Execute(scope);
+			script.Execute(scope); // Updates teams
 
-			foreach (Team team in teams)
-			{
-				if (team.GetMembers().GetLength() > 0)
-				{
-					for (int i = 0; i < team.GetMembers().GetLength(); ++i)
-					{
-						this.EntityManager.Add(Characters.GetCharacter(team.GetMembers().Get(i)));
-					}
+			var environment = new ArenaEnvironment(teams);
 
-					this.AddSceneBehavior(new ArenaBehavior(environment, world, team), SceneBehavior.Order.PreUpdate);
-				}
-			}
+			this.AddEnvironmentEntities(environment);
+
+			this.AddSceneBehavior(new ArenaBehavior(environment, world, teams), SceneBehavior.Order.PreUpdate);
 		}
 
 		private static void MakeArenaModule(ScriptEngine engine, List<Team> teams, World world)
@@ -72,6 +57,20 @@ namespace BattleTeam.Scenes.Arena
 			module.SetVariable(nameof(Rotation), DynamicHelpers.GetPythonTypeFromType(typeof(Rotation)));
 			module.SetVariable(nameof(teams), teams);
 			module.SetVariable("World", world);
+		}
+
+		private void AddEnvironmentEntities(ArenaEnvironment environment)
+		{
+			List<Entity> Walls = new List<Entity>();
+			this.EntityManager.Add(environment.TopWall);
+			this.EntityManager.Add(environment.BottomWall);
+			this.EntityManager.Add(environment.LeftWall);
+			this.EntityManager.Add(environment.RightWall);
+
+			foreach (Entity member in environment.Characters)
+			{
+				this.EntityManager.Add(member);
+			}
 		}
 
 		protected override void Start()

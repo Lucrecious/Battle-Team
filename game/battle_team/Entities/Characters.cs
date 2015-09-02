@@ -19,13 +19,13 @@ namespace BattleTeam.Entities
 		internal static Entity GetCharacter(Member member)
 		{
 			return new Entity()
+			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
 			{
 				Origin = new Vector2(0.5f, 0.5f)
 			})
 			.AddComponent(new Sprite("Content/ball"))
 			.AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
-			.AddComponent(new RectangleCollider())
 			.AddComponent(new CharacterBehavior(member));
 		}
 	}

@@ -16,7 +16,7 @@ namespace BattleTeam.PythonComponents.Team
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Team"/> class.
 		/// </summary>
-		/// <param name="members">The <see cref="Member"/>s that are part of the <see cref="Team"/></param>
+		/// <param name="members">The <see cref="Member"/>s that are part of the <see cref="Team"/>.</param>
 		public Team(params Member[] members)
 		{
 			if (members.Length > GetMaxTeamSize())
@@ -33,15 +33,15 @@ namespace BattleTeam.PythonComponents.Team
 		}
 
 		/// <summary>
-		/// Gets the maximum number of <see cref="Member"/>s in a <see cref="Team"/>
+		/// Gets the maximum number of <see cref="Member"/>s in a <see cref="Team"/>.
 		/// </summary>
-		/// <returns>The maximum number of <see cref="Member"/>s in one given <see cref="Team"/></returns>
+		/// <returns>The maximum number of <see cref="Member"/>s in one given <see cref="Team"/>.</returns>
 		public static int GetMaxTeamSize() => 3;
 
 		/// <summary>
-		/// Gets all the <see cref="Member"/>s of the <see cref="Team"/>
+		/// Gets all the <see cref="Member"/>s of the <see cref="Team"/>.
 		/// </summary>
-		/// <returns>An immutable array with the <see cref="Team"/>'s <see cref="Member"/>s</returns>
+		/// <returns>An immutable array with the <see cref="Team"/>'s <see cref="Member"/>s.</returns>
 		public ImmutablePythonList<Member> GetMembers() => this.members;
 
 		internal void AddMessage(Message message)

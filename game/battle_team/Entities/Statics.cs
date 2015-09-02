@@ -28,7 +28,7 @@ namespace BattleTeam.Entities
 			.AddComponent(new Transform2D()
 			{
 				X = -WaveServices.Platform.ScreenWidth / 2,
-				Y = WaveServices.Platform.ScreenHeight / 2
+				Y = WaveServices.Platform.ScreenHeight / 5
 			})
 			.AddComponent(new Sprite("Content/horizontal_wall.png"))
 			.AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
