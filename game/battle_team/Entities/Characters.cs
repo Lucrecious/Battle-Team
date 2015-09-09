@@ -27,8 +27,8 @@ namespace BattleTeam.Entities
 				XScale = 3,
 				YScale = 3,
 			})
-			.AddComponent(new Sprite("Content/gunner.png"))
-			.AddComponent(new SpriteRenderer(DefaultLayers.Additive, samplerMode: AddressMode.PointClamp))
+			.AddComponent(new SpriteRenderer(DefaultLayers.Alpha, samplerMode: AddressMode.PointClamp))
+			.AddComponent(new Sprite("Content/gunner"))
 			.AddComponent(new CharacterBehavior(member));
 		}
 	}

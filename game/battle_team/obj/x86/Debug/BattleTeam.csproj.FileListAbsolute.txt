@@ -38,3 +38,4 @@ C:\Users\Luca\Desktop\Projects\Games\battle_team\game\battle_team\bin\x86\Debug\
 C:\Users\Luca\Desktop\Projects\Games\battle_team\game\battle_team\bin\x86\Debug\Microsoft.Scripting.Metadata.xml
 C:\Users\Luca\Desktop\Projects\Games\battle_team\game\battle_team\bin\x86\Debug\System.Collections.Immutable.dll
 C:\Users\Luca\Desktop\Projects\Games\battle_team\game\battle_team\bin\x86\Debug\System.Collections.Immutable.xml
+C:\Users\Luca\Desktop\Projects\Games\battle_team\game\battle_team\bin\x86\Debug\Resources.weproj

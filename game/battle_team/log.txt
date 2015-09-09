@@ -466,3 +466,74 @@
 01 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
 01 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
 01 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+32 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+32 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+32 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+53 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+53 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+53 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+30 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+30 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+30 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+43 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+43 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+43 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+43 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+43 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+43 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+49 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+49 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+50 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+50 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+15 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+15 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+57 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+58 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+58 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+27 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+27 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+28 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+07 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+07 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+07 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+07 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+07 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+07 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+12 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+12 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+12 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+30 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+30 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+30 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+34 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+34 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+34 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+34 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+34 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+34 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+35 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+35 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+42 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+42 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+46 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+46 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+46 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+15 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+16 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+16 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+37 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+37 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+37 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+37 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+37 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+37 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+39 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+39 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+43 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+43 GetPropertyElement There was a problem trying to create an editor for the property editor. 
+47 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+47 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+47 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+59 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+59 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 
+59 CreateAsset Registered asset of type "WaveEditor.Extensions.Model.Assets.Music" is not marked with AssetAttribute. 

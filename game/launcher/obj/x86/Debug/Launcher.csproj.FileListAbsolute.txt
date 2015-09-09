@@ -94,3 +94,4 @@ C:\Users\Luca\Desktop\Projects\Games\battle_team\game\launcher\bin\x86\Debug\Mic
 C:\Users\Luca\Desktop\Projects\Games\battle_team\game\launcher\bin\x86\Debug\IronPython.xml
 C:\Users\Luca\Desktop\Projects\Games\battle_team\game\launcher\bin\x86\Debug\Microsoft.Dynamic.xml
 C:\Users\Luca\Desktop\Projects\Games\battle_team\game\launcher\bin\x86\Debug\Microsoft.Scripting.Metadata.xml
+C:\Users\Luca\Desktop\Projects\Games\battle_team\game\launcher\bin\x86\Debug\Resources.weproj
