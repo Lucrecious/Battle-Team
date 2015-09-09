@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Behaviors\CharacterBehavior.cs" />
+    <Compile Include="Entities\Behaviors\GunnerBehavior.cs" />
     <Compile Include="Entities\Cameras.cs" />
     <Compile Include="Entities\Characters.cs" />
     <Compile Include="Entities\Statics.cs" />

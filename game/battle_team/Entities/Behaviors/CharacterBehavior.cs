@@ -10,31 +10,30 @@ using WaveEngine.Framework.Physics2D;
 
 namespace BattleTeam.Entities.Behaviors
 {
-	internal class CharacterBehavior : Behavior
+	internal abstract class CharacterBehavior : Behavior
 	{
 		private readonly Member member;
 
-		[RequiredComponent]
-		private Transform2D trans2D = null;
-
-		[RequiredComponent]
-		private RectangleCollider rectangleCollider = null;
+		protected abstract Transform2D Trans2D { get; }
+		protected abstract RectangleCollider RectangleCollider { get; }
 
 		internal CharacterBehavior(Member member)
 		{
 			this.member = member;
 		}
 
+		internal abstract void UseAttack();
+
 		protected override void Update(TimeSpan gameTime)
 		{
-			this.member.SetPosition(this.trans2D.Position);
-			this.member.SetRotation(this.trans2D.Rotation);
-			this.member.SetRectangle(this.rectangleCollider.Transform2D.Rectangle);
+			this.member.SetPosition(this.Trans2D.Position);
+			this.member.SetRotation(this.Trans2D.Rotation);
+			this.member.SetRectangle(this.RectangleCollider.Transform2D.Rectangle);
 
 			IPlay play = this.member.Turn();
 
-			this.trans2D.Position += play.GetMoveDirection() * this.member.GetSpeed() * (float)gameTime.TotalSeconds;
-			this.trans2D.Rotation = Utilities.WrapFloat(this.trans2D.Rotation + play.GetRotation(), 0, 2 * Math.PI);
+			this.Trans2D.Position += play.GetMoveDirection() * this.member.GetSpeed() * (float)gameTime.TotalSeconds;
+			this.Trans2D.Rotation = Utilities.WrapFloat(this.Trans2D.Rotation + play.GetRotation(), 0, 2 * Math.PI);
 
 			if (play.GetMessage() != null)
 			{
@@ -42,7 +41,11 @@ namespace BattleTeam.Entities.Behaviors
 				this.member.GetTeam().AddMessage(play.GetMessage());
 			}
 
-			// Use attack using play.UseAttack
+			// Right now this should do nothing
+			if (play.IsUsingAttack())
+			{
+				this.UseAttack();
+			}
 		}
 	}
 }

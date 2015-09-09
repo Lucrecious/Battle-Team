@@ -21,8 +21,21 @@ namespace BattleTeam.Entities
 	{
 		private static readonly ImmutableDictionary<Class, string> ClassToSpritePath = new Dictionary<Class, string>
 		{
-
+			{ Class.Gunner, "Content/gunner" }
 		}.ToImmutableDictionary();
+
+		private static CharacterBehavior CreateCharacterBehaviorFromMember(Member member)
+		{
+			switch (member.GetClass())
+			{
+				case Class.Gunner:
+					{
+						return new GunnerBehavior(member);
+					}
+			}
+
+			throw new NotImplementedException();
+		}
 
 		internal static Entity GetCharacter(Member member)
 		{
@@ -38,7 +51,7 @@ namespace BattleTeam.Entities
 			})
 			.AddComponent(new SpriteRenderer(DefaultLayers.Alpha, samplerMode: AddressMode.PointClamp))
 			.AddComponent(new Sprite(ClassToSpritePath[member.GetClass()]))
-			.AddComponent(new CharacterBehavior(member));
+			.AddComponent(CreateCharacterBehaviorFromMember(member));
 		}
 	}
 }
