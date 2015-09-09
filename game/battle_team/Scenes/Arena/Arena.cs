@@ -60,6 +60,7 @@ namespace BattleTeam.Scenes.Arena
 			module.SetVariable(nameof(Team), DynamicHelpers.GetPythonTypeFromType(typeof(Team)));
 			module.SetVariable(nameof(Movement), DynamicHelpers.GetPythonTypeFromType(typeof(Movement)));
 			module.SetVariable(nameof(Rotation), DynamicHelpers.GetPythonTypeFromType(typeof(Rotation)));
+			module.SetVariable(nameof(Attack), DynamicHelpers.GetPythonTypeFromType(typeof(Attack)));
 			module.SetVariable(nameof(teams), teams);
 			module.SetVariable("World", world);
 		}

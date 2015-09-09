@@ -124,6 +124,19 @@ namespace BattleTeam.Shared
 			return new Vector2(-y, x);
 		}
 
+		/// <summary>
+		/// Rotates the vector, <paramref name="v"/> by <paramref name="r"/>
+		/// </summary>
+		/// <param name="v">The vector to be rotated</param>
+		/// <param name="r">The rotation amount in radians</param>
+		/// <returns>The rotated vector</returns>
+		public static Vector2 Rotate(this Vector2 v, float r)
+		{
+			float cosr = (float)Math.Cos(r);
+			float sinr = (float)Math.Sin(r);
+			return new Vector2((v.X * cosr) - (v.Y * sinr), (v.X * sinr) + (v.Y * cosr));
+		}
+
 		private struct Projection
 		{
 			internal float Min { get; }

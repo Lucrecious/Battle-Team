@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BattleTeam.PythonComponents.Team;
+using BattleTeam.Shared;
 using WaveEngine.Common.Math;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
@@ -30,6 +31,7 @@ namespace BattleTeam.Entities.Behaviors
 
 		internal override void UseAttack()
 		{
+			// Vector2 v = RelativeShootingPoint.Rotate(this.member.GetRotation());
 		}
 	}
 }

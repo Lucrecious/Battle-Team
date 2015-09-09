@@ -11,7 +11,7 @@ namespace BattleTeam.Entities.Behaviors
 {
 	internal abstract class CharacterBehavior : Behavior
 	{
-		private readonly Member member;
+		protected readonly Member member;
 
 		protected abstract Transform2D Trans2D { get; }
 		protected abstract RectangleCollider RectangleCollider { get; }
