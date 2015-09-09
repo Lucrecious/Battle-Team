@@ -27,5 +27,7 @@ namespace BattleTeam.PythonComponents.Team
 		public Gunner() : base(Class.Gunner, nameof(Gunner))
 		{
 		}
+
+		internal override float Speed => 20f;
 	}
 }

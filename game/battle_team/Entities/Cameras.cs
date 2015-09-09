@@ -9,7 +9,7 @@ namespace BattleTeam.Entities
 	{
 		internal static readonly FixedCamera2D FixedCamera = new FixedCamera2D("Camera2D", Vector2.Zero)
 		{
-			BackgroundColor = Color.Black
+			BackgroundColor = Color.LightGray
 		};
 	}
 }

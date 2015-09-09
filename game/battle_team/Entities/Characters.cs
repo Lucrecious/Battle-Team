@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BattleTeam.Entities.Behaviors;
 using BattleTeam.PythonComponents.Team;
+using WaveEngine.Common.Graphics;
 using WaveEngine.Common.Math;
 using WaveEngine.Components.Graphics2D;
 using WaveEngine.Framework;
@@ -22,10 +23,12 @@ namespace BattleTeam.Entities
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
 			{
-				Origin = new Vector2(0.5f, 0.5f)
+				Origin = new Vector2(0.5f, 0.5f),
+				XScale = 3,
+				YScale = 3,
 			})
-			.AddComponent(new Sprite("Content/ball"))
-			.AddComponent(new SpriteRenderer(DefaultLayers.Alpha))
+			.AddComponent(new Sprite("Content/gunner.png"))
+			.AddComponent(new SpriteRenderer(DefaultLayers.Additive, samplerMode: AddressMode.PointClamp))
 			.AddComponent(new CharacterBehavior(member));
 		}
 	}

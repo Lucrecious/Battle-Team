@@ -36,11 +36,13 @@ namespace BattleTeam.PythonComponents.Team
 			return null;
 		}
 
+		internal virtual float Speed => 10f;
+
 		/// <summary>
 		/// Gets the speed of the <see cref="Member"/>.
 		/// </summary>
 		/// <returns>The maximum amount of units a <see cref="Member"/> can move during any given <see cref="Turn"/>.</returns>
-		public virtual float GetSpeed() => 2f;
+		public float GetSpeed() => this.Speed;
 
 		/// <summary>
 		/// Gets the <see cref="Class"/> of the <see cref="Member"/>.

@@ -33,7 +33,7 @@ namespace BattleTeam.Entities.Behaviors
 
 			IPlay play = this.member.Turn();
 
-			this.trans2D.Position += play.GetMoveDirection();
+			this.trans2D.Position += play.GetMoveDirection() * this.member.GetSpeed() * (float)gameTime.TotalSeconds;
 			this.trans2D.Rotation = Utilities.WrapFloat(this.trans2D.Rotation + play.GetRotation(), 0, 2 * Math.PI);
 
 			if (play.GetMessage() != null)

@@ -117,7 +117,9 @@
   <ItemGroup>
     <None Include="BattleTeam.ruleset" />
     <None Include="packages.config" />
-    <None Include="Resources.weproj" />
+    <None Include="Resources.weproj">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta008\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
