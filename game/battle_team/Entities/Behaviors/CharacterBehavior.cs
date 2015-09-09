@@ -2,8 +2,7 @@
 using BattleTeam.PythonComponents.Plays;
 using BattleTeam.PythonComponents.Team;
 using BattleTeam.Shared;
-using IronPython.Hosting;
-using IronPython.Runtime.Types;
+using Validation;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
 using WaveEngine.Framework.Physics2D;
@@ -19,6 +18,7 @@ namespace BattleTeam.Entities.Behaviors
 
 		internal CharacterBehavior(Member member)
 		{
+			Requires.NotNull(member, nameof(member));
 			this.member = member;
 		}
 

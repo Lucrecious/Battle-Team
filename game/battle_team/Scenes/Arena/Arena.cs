@@ -15,6 +15,7 @@ using BattleTeam.Shared;
 using IronPython.Hosting;
 using IronPython.Runtime.Types;
 using Microsoft.Scripting.Hosting;
+using Validation;
 using WaveEngine.Common.Math;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
@@ -49,6 +50,10 @@ namespace BattleTeam.Scenes.Arena
 
 		private static void MakeArenaModule(ScriptEngine engine, List<Team> teams, World world)
 		{
+			Requires.NotNull(engine, nameof(engine));
+			Requires.NotNull(teams, nameof(teams));
+			Requires.NotNull(world, nameof(world));
+
 			var module = engine.CreateModule(Constants.ModuleName);
 
 			module.SetVariable(nameof(Gunner), DynamicHelpers.GetPythonTypeFromType(typeof(Gunner)));
@@ -61,6 +66,8 @@ namespace BattleTeam.Scenes.Arena
 
 		private void AddEnvironmentEntities(ArenaEnvironment environment)
 		{
+			Requires.NotNull(environment, nameof(environment));
+
 			List<Entity> Walls = new List<Entity>();
 			this.EntityManager.Add(environment.TopWall);
 			this.EntityManager.Add(environment.BottomWall);

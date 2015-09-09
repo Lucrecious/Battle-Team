@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BattleTeam.PythonComponents.Team;
+using Validation;
 using WaveEngine.Common.Math;
 
 namespace BattleTeam.PythonComponents.Plays
@@ -17,6 +18,7 @@ namespace BattleTeam.PythonComponents.Plays
 		/// <param name="reciever">The reciever of the <see cref="Healing"/></param>
 		public Healing(Member reciever)
 		{
+			Requires.NotNull(reciever, nameof(reciever));
 			this.message = new Message(null, reciever, Subject.Heal);
 		}
 

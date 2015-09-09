@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BattleTeam.Entities;
 using BattleTeam.PythonComponents.Team;
+using Validation;
 using WaveEngine.Framework;
 
 namespace BattleTeam.Scenes.Arena
@@ -23,6 +24,8 @@ namespace BattleTeam.Scenes.Arena
 
 		internal ArenaEnvironment(List<Team> teams)
 		{
+			Requires.NotNull(teams, nameof(teams));
+
 			this.TopWall = Statics.CreateTopWall();
 			this.BottomWall = Statics.CreateBottomWall();
 			this.RightWall = Statics.CreateRightWall();
@@ -35,6 +38,8 @@ namespace BattleTeam.Scenes.Arena
 
 		private ImmutableArray<Entity> GetCharactersFromMembers(List<Team> teams)
 		{
+			Requires.NotNull(teams, nameof(teams));
+
 			List<Entity> characters = new List<Entity>();
 
 			foreach (Team team in teams)

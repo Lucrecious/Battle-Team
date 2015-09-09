@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BattleTeam.PythonComponents.Team;
+using Validation;
 
 namespace BattleTeam.PythonComponents.Plays
 {
@@ -20,6 +21,9 @@ namespace BattleTeam.PythonComponents.Plays
 		/// <param name="messageSubject">The <see cref="Subject"/> to be delivered</param>
 		public Message(Member sender, Member reciever, Subject messageSubject)
 		{
+			Requires.NotNull(sender, nameof(sender));
+			Requires.NotNull(reciever, nameof(reciever));
+
 			this.Sender = sender;
 			this.reciever = reciever;
 			this.subject = messageSubject;

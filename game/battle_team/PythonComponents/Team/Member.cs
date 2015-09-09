@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BattleTeam.PythonComponents.Environment;
 using BattleTeam.PythonComponents.Plays;
 using BattleTeam.Shared;
+using Validation;
 using WaveEngine.Common.Math;
 
 namespace BattleTeam.PythonComponents.Team
@@ -17,6 +18,8 @@ namespace BattleTeam.PythonComponents.Team
 	{
 		internal Member(Class @class, string displayName)
 		{
+			Requires.NotNull(displayName, nameof(displayName));
+
 			this.@class = @class;
 			this.displayName = displayName;
 
@@ -118,6 +121,8 @@ namespace BattleTeam.PythonComponents.Team
 
 		internal void SetTeam(Team team)
 		{
+			Requires.NotNull(team, nameof(team));
+
 			if (this.team == null)
 			{
 				this.team = team;

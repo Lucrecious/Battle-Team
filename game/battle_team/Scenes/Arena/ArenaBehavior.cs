@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BattleTeam.PythonComponents.Environment;
 using BattleTeam.PythonComponents.Team;
+using BattleTeam.Shared;
+using Validation;
 using WaveEngine.Common.Math;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
 using WaveEngine.Framework.Physics2D;
-using BattleTeam.Shared;
 
 namespace BattleTeam.Scenes.Arena
 {
@@ -24,6 +22,10 @@ namespace BattleTeam.Scenes.Arena
 
 		internal ArenaBehavior(ArenaEnvironment environment, World world, List<Team> teams)
 		{
+			Requires.NotNull(environment, nameof(environment));
+			Requires.NotNull(world, nameof(world));
+			Requires.NotNull(teams, nameof(teams));
+
 			this.environment = environment;
 			this.world = world;
 			this.teams = teams.ToImmutableArray();
@@ -64,8 +66,12 @@ namespace BattleTeam.Scenes.Arena
 			}
 		}
 
-		private void PushMemberOutOfWall(Entity member, RectangleCollider memberCollider, RectangleCollider wallCollider)
+		private void PushMemberOutOfWall(Entity memberEntity, RectangleCollider memberCollider, RectangleCollider wallCollider)
 		{
+			Requires.NotNull(memberEntity, nameof(memberEntity));
+			Requires.NotNull(memberCollider, nameof(memberCollider));
+			Requires.NotNull(wallCollider, nameof(wallCollider));
+
 			Vector2? pushOut;
 
 			if (memberCollider.Intersects(wallCollider, out pushOut))

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Validation;
 using WaveEngine.Common.Math;
 using WaveEngine.Framework.Physics2D;
 
@@ -26,6 +27,9 @@ namespace BattleTeam.Shared
 		/// <returns>true if there's an intersection, otherwise false</returns>
 		public static bool Intersects(this RectangleCollider rectCollider, RectangleCollider otherCollider, out Vector2? mtv)
 		{
+			Requires.NotNull(rectCollider, nameof(rectCollider));
+			Requires.NotNull(otherCollider, nameof(otherCollider));
+
 			List<Vector2> testingAxes = new List<Vector2>();
 			testingAxes.AddRange(GetTestingAxes(rectCollider));
 			testingAxes.AddRange(GetTestingAxes(otherCollider));
@@ -67,6 +71,8 @@ namespace BattleTeam.Shared
 
 		private static Projection ProjectOn(this RectangleCollider rectCollider, Vector2 vector)
 		{
+			Requires.NotNull(rectCollider, nameof(rectCollider));
+
 			float min = Vector2.Dot(rectCollider.GetPoints2D()[0], vector);
 			float max = min;
 
@@ -90,6 +96,8 @@ namespace BattleTeam.Shared
 		/// <returns>An <see cref="IEnumerable{T}"/> that needs to be tested.</returns>
 		private static IEnumerable<Vector2> GetTestingAxes(RectangleCollider rectCollider)
 		{
+			Requires.NotNull(rectCollider, nameof(rectCollider));
+
 			Vector2 edge1 = rectCollider.GetPoints2D()[1] - rectCollider.GetPoints2D()[0];
 			Vector2 axis1 = edge1.Normal();
 			axis1.Normalize();

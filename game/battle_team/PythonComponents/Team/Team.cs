@@ -4,6 +4,7 @@ using System.Collections.Immutable;
 using BattleTeam.PythonComponents.Collections;
 using BattleTeam.PythonComponents.Environment;
 using BattleTeam.PythonComponents.Plays;
+using Validation;
 
 namespace BattleTeam.PythonComponents.Team
 {
@@ -46,6 +47,8 @@ namespace BattleTeam.PythonComponents.Team
 
 		internal void AddMessage(Message message)
 		{
+			Requires.NotNull(message, nameof(message));
+
 			this.messages.Add(message);
 		}
 

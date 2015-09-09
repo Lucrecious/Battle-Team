@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BattleTeam.Entities.Behaviors;
 using BattleTeam.PythonComponents.Team;
+using Validation;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Common.Math;
 using WaveEngine.Components.Graphics2D;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
 using WaveEngine.Framework.Physics2D;
-using WaveEngine.Framework.Services;
-using Validation;
 
 namespace BattleTeam.Entities
 {
@@ -26,6 +22,8 @@ namespace BattleTeam.Entities
 
 		private static CharacterBehavior CreateCharacterBehaviorFromMember(Member member)
 		{
+			Requires.NotNull(member, nameof(member));
+
 			switch (member.GetClass())
 			{
 				case Class.Gunner:
