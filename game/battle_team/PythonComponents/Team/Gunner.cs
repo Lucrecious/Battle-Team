@@ -28,6 +28,6 @@ namespace BattleTeam.PythonComponents.Team
 		{
 		}
 
-		internal override float Speed => 20f;
+		internal override float Speed => 10f;
 	}
 }

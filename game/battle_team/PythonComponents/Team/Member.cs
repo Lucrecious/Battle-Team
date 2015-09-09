@@ -36,7 +36,7 @@ namespace BattleTeam.PythonComponents.Team
 			return null;
 		}
 
-		internal virtual float Speed => 10f;
+		internal virtual float Speed => 20f;
 
 		/// <summary>
 		/// Gets the speed of the <see cref="Member"/>.
