@@ -13,7 +13,6 @@ namespace BattleTeam.Entities.Behaviors
 {
 	internal class BulletBehavior : Behavior
 	{
-
 		internal Bullet Bullet { get; }
 
 		[RequiredComponent]

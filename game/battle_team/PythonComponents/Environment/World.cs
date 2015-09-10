@@ -1,5 +1,6 @@
 ﻿using System.Collections.Immutable;
 using BattleTeam.PythonComponents.Collections;
+using BattleTeam.PythonComponents.Objects;
 using BattleTeam.PythonComponents.Team;
 using Validation;
 using WaveEngine.Common.Math;
@@ -41,6 +42,9 @@ namespace BattleTeam.PythonComponents.Environment
 		/// </summary>
 		/// <returns>The array holding all <see cref="Team"/> <see cref="Member"/>s in the arena</returns>
 		public ImmutablePythonList<Member> GetMembers() => this.members;
+
+		internal ImmutablePythonList<Bullet> Bullets { get; set; }
+		public ImmutablePythonList<Bullet> GetBullets() => this.Bullets;
 
 		internal void Initialize(RectangleF topWall, RectangleF bottomWall, RectangleF rightWall, RectangleF leftWall, ImmutableArray<Member> members)
 		{

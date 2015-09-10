@@ -23,6 +23,5 @@ namespace BattleTeam.PythonComponents.Objects
 			this.shooter = shooter;
 			this.direction = direction;
 		}
-
 	}
 }

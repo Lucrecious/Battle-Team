@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BattleTeam.PythonComponents.Environment;
-
-namespace BattleTeam.PythonComponents.Team
+﻿namespace BattleTeam.PythonComponents.Team
 {
 	/// <summary>
 	/// The <see cref="Class.Gunner"/> as described in <see cref="Class"/>.

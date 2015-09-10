@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using BattleTeam.Entities.Behaviors;
+using BattleTeam.PythonComponents.Collections;
 using BattleTeam.PythonComponents.Environment;
+using BattleTeam.PythonComponents.Objects;
 using BattleTeam.PythonComponents.Team;
 using BattleTeam.Shared;
 using Validation;
@@ -45,11 +48,28 @@ namespace BattleTeam.Scenes.Arena
 			}
 
 			this.BoundMembersByWalls();
+			this.world.Bullets = this.GetLiveBullets();
 
 			foreach (Team team in this.teams)
 			{
 				team.ResolveMessages();
 			}
+		}
+
+		private ImmutablePythonList<Bullet> GetLiveBullets()
+		{
+			List<Bullet> bullets = new List<Bullet>();
+
+			foreach (Entity entity in this.Scene.EntityManager.AllEntities)
+			{
+				Behavior behavior = entity.FindComponent<BulletBehavior>();
+				if (behavior as BulletBehavior != null)
+				{
+					bullets.Add(((BulletBehavior)behavior).Bullet);
+				}
+			}
+
+			return new ImmutablePythonList<Bullet>(bullets.ToImmutableArray());
 		}
 
 		private void BoundMembersByWalls()
@@ -60,7 +80,6 @@ namespace BattleTeam.Scenes.Arena
 				foreach (Entity member in this.environment.Characters)
 				{
 					var memberCollider = member.FindComponent<RectangleCollider>();
-
 					this.PushMemberOutOfWall(member, memberCollider, wallCollider);
 				}
 			}
