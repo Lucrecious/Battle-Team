@@ -26,9 +26,9 @@ namespace BattleTeam.Entities.Behaviors
 
 		protected override void Update(TimeSpan gameTime)
 		{
-			this.member.SetPosition(this.Trans2D.Position);
-			this.member.SetRotation(this.Trans2D.Rotation);
-			this.member.SetRectangle(this.RectangleCollider.Transform2D.Rectangle);
+			this.member.Position = this.Trans2D.Position;
+			this.member.Rotation = this.Trans2D.Rotation;
+			this.member.Rectangle = this.RectangleCollider.Transform2D.Rectangle;
 
 			IPlay play = this.member.Turn();
 

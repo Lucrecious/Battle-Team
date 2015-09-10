@@ -79,19 +79,19 @@ namespace BattleTeam.PythonComponents.Team
 		/// Gets the current position of the <see cref="Member"/> on the 2D plane.
 		/// </summary>
 		/// <returns>A <see cref="Vector2"/> with components corresponding to the 2D coordinates of the <see cref="Member"/>.</returns>
-		public Vector2 GetPosition() => this.position;
+		public Vector2 GetPosition() => this.Position;
 
 		/// <summary>
 		/// Gets the current orientation of the <see cref="Member"/>.
 		/// </summary>
 		/// <returns>A radian value.</returns>
-		public float GetRotation() => this.rotation;
+		public float GetRotation() => this.Rotation;
 
 		/// <summary>
 		/// Gets the rectangle representing the <see cref="Member"/>'s collision box.
 		/// </summary>
 		/// <returns>A rectangle with the top-left as its X, Y.</returns>
-		public RectangleF GetRectangle() => this.rectangle;
+		public RectangleF GetRectangle() => this.Rectangle;
 
 		/// <summary>
 		/// Gets the <see cref="Team"/> the <see cref="Member"/> is apart of.
@@ -99,24 +99,13 @@ namespace BattleTeam.PythonComponents.Team
 		/// <returns>A <see cref="Team"/>.</returns>
 		public Team GetTeam() => this.team;
 
+		internal Vector2 Position { get; set; }
+		internal float Rotation { get; set; }
+		internal RectangleF Rectangle { get; set; }
+
 		internal void Heal(int healAmount)
 		{
 			this.currentHealth = Utilities.Bound(this.currentHealth + healAmount, 0, this.GetMaxHealth());
-		}
-
-		internal void SetPosition(Vector2 position)
-		{
-			this.position = position;
-		}
-
-		internal void SetRotation(float angle)
-		{
-			this.rotation = angle;
-		}
-
-		internal void SetRectangle(RectangleF rectangle)
-		{
-			this.rectangle = rectangle;
 		}
 
 		internal void SetTeam(Team team)
@@ -136,9 +125,6 @@ namespace BattleTeam.PythonComponents.Team
 		private readonly Class @class;
 		private readonly string displayName;
 		private int currentHealth;
-		private Vector2 position;
-		private float rotation;
-		private RectangleF rectangle;
 		private Team team;
 	}
 }

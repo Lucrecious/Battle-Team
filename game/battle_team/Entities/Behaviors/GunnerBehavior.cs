@@ -14,7 +14,7 @@ namespace BattleTeam.Entities.Behaviors
 {
 	internal class GunnerBehavior : CharacterBehavior
 	{
-		private static readonly Vector2 GunBarrelRelativePosition = new Vector2(6, -7);
+		private static readonly Vector2 GunBarrelRelativePosition = new Vector2(15, 0);
 
 		internal GunnerBehavior(Member member) : base(member)
 		{
@@ -33,7 +33,7 @@ namespace BattleTeam.Entities.Behaviors
 		{
 			Vector2 gunBarrelPosition = (GunBarrelRelativePosition * this.Trans2D.Scale).Rotate(this.member.GetRotation()) + this.Trans2D.Position;
 			Vector2 bulletDirection = new Vector2(0, -1).Rotate(this.member.GetRotation());
-			this.EntityManager.Add(Characters.CreateBullet(this.member, gunBarrelPosition, bulletDirection));
+			this.EntityManager.Add(Characters.CreateBullet(this.member, gunBarrelPosition, this.Trans2D.Rotation, bulletDirection));
 		}
 	}
 }

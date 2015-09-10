@@ -43,7 +43,6 @@ namespace BattleTeam.Entities
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
 			{
-				Origin = new Vector2(0.5f, 0.5f),
 				XScale = 3,
 				YScale = 3,
 			})
@@ -52,7 +51,7 @@ namespace BattleTeam.Entities
 			.AddComponent(CreateCharacterBehaviorFromMember(member));
 		}
 
-		internal static Entity CreateBullet(Member shooter, Vector2 position, Vector2 direction)
+		internal static Entity CreateBullet(Member shooter, Vector2 position, float rotation, Vector2 direction)
 		{
 			Requires.NotNull(shooter, nameof(shooter));
 
@@ -60,8 +59,8 @@ namespace BattleTeam.Entities
 				.AddComponent(new RectangleCollider())
 				.AddComponent(new Transform2D()
 				{
-					Origin = new Vector2(0.5f, 0.5f),
-					Position = position
+					Position = position,
+					Rotation = rotation
 				})
 				.AddComponent(new SpriteRenderer(DefaultLayers.Alpha, samplerMode: AddressMode.PointClamp))
 				.AddComponent(new Sprite("Content/bullet"))
