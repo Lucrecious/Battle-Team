@@ -11,7 +11,7 @@ namespace BattleTeam.Entities.Behaviors
 {
 	internal abstract class CharacterBehavior : Behavior
 	{
-		protected readonly Member member;
+		internal Member Member { get; }
 
 		protected abstract Transform2D Trans2D { get; }
 		protected abstract RectangleCollider RectangleCollider { get; }
@@ -19,31 +19,31 @@ namespace BattleTeam.Entities.Behaviors
 		internal CharacterBehavior(Member member)
 		{
 			Requires.NotNull(member, nameof(member));
-			this.member = member;
+			this.Member = member;
 		}
 
 		internal abstract void UseAttack();
 
 		protected override void Update(TimeSpan gameTime)
 		{
-			this.member.Position = this.Trans2D.Position;
-			this.member.Rotation = this.Trans2D.Rotation;
-			this.member.Rectangle = this.RectangleCollider.Transform2D.Rectangle;
+			this.Member.Position = this.Trans2D.Position;
+			this.Member.Rotation = this.Trans2D.Rotation;
+			this.Member.Rectangle = this.RectangleCollider.Transform2D.Rectangle;
 
-			IPlay play = this.member.Turn();
+			IPlay play = this.Member.Turn();
 
 			if (play == null)
 			{
 				return;
 			}
 
-			this.Trans2D.Position += play.GetMoveDirection() * this.member.GetSpeed() * (float)gameTime.TotalSeconds;
+			this.Trans2D.Position += play.GetMoveDirection() * this.Member.GetSpeed() * (float)gameTime.TotalSeconds;
 			this.Trans2D.Rotation = Utilities.WrapFloat(this.Trans2D.Rotation + play.GetRotation(), 0, 2 * Math.PI);
 
 			if (play.GetMessage() != null)
 			{
-				play.GetMessage().Sender = this.member;
-				this.member.GetTeam().AddMessage(play.GetMessage());
+				play.GetMessage().Sender = this.Member;
+				this.Member.GetTeam().AddMessage(play.GetMessage());
 			}
 
 			if (play.IsUsingAttack())

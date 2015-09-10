@@ -31,9 +31,9 @@ namespace BattleTeam.Entities.Behaviors
 
 		internal override void UseAttack()
 		{
-			Vector2 gunBarrelPosition = (GunBarrelRelativePosition * this.Trans2D.Scale).Rotate(this.member.GetRotation()) + this.Trans2D.Position;
-			Vector2 bulletDirection = new Vector2(0, -1).Rotate(this.member.GetRotation());
-			this.EntityManager.Add(Characters.CreateBullet(this.member, gunBarrelPosition, this.Trans2D.Rotation, bulletDirection));
+			Vector2 gunBarrelPosition = (GunBarrelRelativePosition * this.Trans2D.Scale).Rotate(this.Member.GetRotation()) + this.Trans2D.Position;
+			Vector2 bulletDirection = new Vector2(0, -1).Rotate(this.Member.GetRotation());
+			this.EntityManager.Add(Characters.CreateBullet(this.Member, gunBarrelPosition, this.Trans2D.Rotation, bulletDirection));
 		}
 	}
 }

@@ -48,7 +48,9 @@ namespace BattleTeam.Scenes.Arena
 			}
 
 			this.BoundMembersByWalls();
-			this.world.Bullets = this.GetLiveBullets();
+			ImmutableDictionary<Entity, Bullet> entityBullet = this.GetLiveBullets();
+
+			this.world.Bullets = new ImmutablePythonList<Bullet>(entityBullet.Values.ToImmutableArray());
 
 			foreach (Team team in this.teams)
 			{
@@ -56,20 +58,20 @@ namespace BattleTeam.Scenes.Arena
 			}
 		}
 
-		private ImmutablePythonList<Bullet> GetLiveBullets()
+		private ImmutableDictionary<Entity, Bullet> GetLiveBullets()
 		{
-			List<Bullet> bullets = new List<Bullet>();
+			Dictionary<Entity, Bullet> bullets = new Dictionary<Entity, Bullet>();
 
 			foreach (Entity entity in this.Scene.EntityManager.AllEntities)
 			{
 				Behavior behavior = entity.FindComponent<BulletBehavior>();
 				if (behavior as BulletBehavior != null)
 				{
-					bullets.Add(((BulletBehavior)behavior).Bullet);
+					bullets[entity] = ((BulletBehavior)behavior).Bullet;
 				}
 			}
 
-			return new ImmutablePythonList<Bullet>(bullets.ToImmutableArray());
+			return bullets.ToImmutableDictionary();
 		}
 
 		private void BoundMembersByWalls()

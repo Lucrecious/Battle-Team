@@ -14,6 +14,9 @@ namespace BattleTeam.Entities
 	internal static class Statics
 	{
 		internal static Entity CreateTopWall() => new Entity()
+		{
+			Tag = "wall"
+		}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
 			{
@@ -24,6 +27,9 @@ namespace BattleTeam.Entities
 			.AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
 
 		internal static Entity CreateBottomWall() => new Entity()
+		{
+			Tag = "wall"
+		}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
 			{
@@ -34,6 +40,9 @@ namespace BattleTeam.Entities
 			.AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
 
 		internal static Entity CreateLeftWall() => new Entity()
+		{
+			Tag = "wall"
+		}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
 			{
@@ -44,6 +53,9 @@ namespace BattleTeam.Entities
 			.AddComponent(new SpriteRenderer(DefaultLayers.Alpha));
 
 		internal static Entity CreateRightWall() => new Entity()
+		{
+			Tag = "wall"
+		}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
 			{

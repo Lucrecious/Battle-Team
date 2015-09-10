@@ -17,6 +17,9 @@ namespace BattleTeam.PythonComponents
 	internal static class Text
 	{
 		public static readonly Entity PlayButton = new Entity()
+		{
+			Tag = "text"
+		}
 			.AddComponent(new Transform2D()
 			{
 				Origin = new Vector2(0.5f, 0.5f),

@@ -40,6 +40,9 @@ namespace BattleTeam.Entities
 			Requires.NotNull(member, nameof(member));
 
 			return new Entity()
+			{
+				Tag = "member"
+			}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
 			{
@@ -56,6 +59,9 @@ namespace BattleTeam.Entities
 			Requires.NotNull(shooter, nameof(shooter));
 
 			return new Entity()
+			{
+				Tag = "bullet"
+			}
 				.AddComponent(new RectangleCollider())
 				.AddComponent(new Transform2D()
 				{
