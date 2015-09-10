@@ -10,7 +10,7 @@ namespace BattleTeam.PythonComponents.Objects
 {
 	public class Bullet
 	{
-		public static int GetMaxSpeed() => 10;
+		public static int GetMaxSpeed() => 50;
 
 		private readonly Member shooter;
 		public Member GetShooter() => this.shooter;

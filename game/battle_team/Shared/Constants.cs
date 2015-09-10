@@ -15,6 +15,7 @@ namespace BattleTeam.Shared
 			internal const string Wall = "wall";
 			internal const string Member = "member";
 			internal const string Bullet = "bullet";
+			internal const string Sword = "sword";
 			internal const string Text = "text";
 		}
 	}

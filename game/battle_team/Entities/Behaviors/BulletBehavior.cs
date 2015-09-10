@@ -11,7 +11,7 @@ using WaveEngine.Framework.Graphics;
 
 namespace BattleTeam.Entities.Behaviors
 {
-	internal class BulletBehavior : Behavior
+	internal class BulletBehavior : LivingBehavior
 	{
 		internal Bullet Bullet { get; }
 
@@ -29,6 +29,8 @@ namespace BattleTeam.Entities.Behaviors
 
 		protected override void Update(TimeSpan gameTime)
 		{
+			base.Update(gameTime);
+
 			if (!this.Bullet.Initialized)
 			{
 				this.Bullet.Initialize(this.trans2D.Rectangle);

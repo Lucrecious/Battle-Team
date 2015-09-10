@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Validation;
+using WaveEngine.Framework;
 
 namespace BattleTeam.Shared
 {
@@ -47,5 +49,10 @@ namespace BattleTeam.Shared
 		{
 			return (int)WrapDouble(i, upper, lower);
 		}
+
+		internal static IEnumerable<object> Chain(params IEnumerable<object>[] iEnumerables)
+		{
+			return iEnumerables.SelectMany(x => x);
+        }
 	}
 }

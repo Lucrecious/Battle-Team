@@ -45,12 +45,49 @@ namespace BattleTeam.Scenes.Arena
 			}
 
 			this.BoundMembersByWalls();
+			this.HandleHitCollisions();
 
 			this.world.Bullets = new ImmutablePythonList<Bullet>(this.GetLiveBullets());
 
 			foreach (Team team in this.teams)
 			{
 				team.ResolveMessages();
+			}
+		}
+
+		private void HandleHitCollisions()
+		{
+			foreach (Entity damager in
+				Utilities.Chain(
+					this.Scene.EntityManager.FindAllByTag(Constants.Tags.Bullet),
+					this.Scene.EntityManager.FindAllByTag(Constants.Tags.Sword)))
+			{
+				RectangleCollider damagerCollider = damager.FindComponent<RectangleCollider>();
+				foreach (Entity other in
+					Utilities.Chain(
+						this.Scene.EntityManager.FindAllByTag(Constants.Tags.Wall),
+						this.Scene.EntityManager.FindAllByTag(Constants.Tags.Member)))
+				{
+					RectangleCollider otherCollider = other.FindComponent<RectangleCollider>();
+
+					if (damagerCollider.Intersects(otherCollider))
+					{
+						switch (other.Tag)
+						{
+							case Constants.Tags.Wall:
+								{
+									// This only applies to the bullet, the sword ends
+									//   after its animation is finished playing.
+									if (damager.Tag == Constants.Tags.Bullet)
+									{
+										damager.FindComponent<BulletBehavior>().End();
+									}
+
+									break;
+								}
+						}
+					}
+				}
 			}
 		}
 
