@@ -24,12 +24,18 @@ namespace BattleTeam.Entities.Behaviors
 		{
 			this.Bullet = new Bullet(shooter, direction);
 			direction.Normalize();
-			this.Velocity = direction * Bullet.GetSpeed();
+			this.Velocity = direction * Bullet.GetMaxSpeed();
 		}
 
 		protected override void Update(TimeSpan gameTime)
 		{
+			if (!this.Bullet.Initialized)
+			{
+				this.Bullet.Initialize(this.trans2D.Rectangle);
+			}
+
 			this.trans2D.Position += this.Velocity * (float)gameTime.TotalSeconds;
+			this.Bullet.Position = this.trans2D.Position;
 		}
 	}
 }

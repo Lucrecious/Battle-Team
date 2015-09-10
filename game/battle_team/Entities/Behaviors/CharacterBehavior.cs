@@ -32,6 +32,11 @@ namespace BattleTeam.Entities.Behaviors
 
 			IPlay play = this.member.Turn();
 
+			if (play == null)
+			{
+				return;
+			}
+
 			this.Trans2D.Position += play.GetMoveDirection() * this.member.GetSpeed() * (float)gameTime.TotalSeconds;
 			this.Trans2D.Rotation = Utilities.WrapFloat(this.Trans2D.Rotation + play.GetRotation(), 0, 2 * Math.PI);
 
@@ -41,7 +46,6 @@ namespace BattleTeam.Entities.Behaviors
 				this.member.GetTeam().AddMessage(play.GetMessage());
 			}
 
-			// Right now this should do nothing
 			if (play.IsUsingAttack())
 			{
 				this.UseAttack();
