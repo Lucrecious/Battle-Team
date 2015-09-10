@@ -109,7 +109,6 @@
     <Compile Include="PythonComponents\Collections\ImmutablePythonList.cs" />
     <Compile Include="PythonComponents\Environment\World.cs" />
     <Compile Include="Scenes\Arena\ArenaBehavior.cs" />
-    <Compile Include="Scenes\Arena\ArenaEnvironment.cs" />
     <Compile Include="Shared\Constants.cs" />
     <Compile Include="Shared\Physics2DExtensions.cs" />
     <Compile Include="Shared\Utilities.cs" />

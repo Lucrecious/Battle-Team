@@ -41,11 +41,9 @@ namespace BattleTeam.Scenes.Arena
 
 			script.Execute(scope); // Updates teams
 
-			var environment = new ArenaEnvironment(teams);
+			this.AddEnvironmentEntities(teams);
 
-			this.AddEnvironmentEntities(environment);
-
-			this.AddSceneBehavior(new ArenaBehavior(environment, world, teams), SceneBehavior.Order.PreUpdate);
+			this.AddSceneBehavior(new ArenaBehavior(world, teams), SceneBehavior.Order.PreUpdate);
 		}
 
 		private static void MakeArenaModule(ScriptEngine engine, List<Team> teams, World world)
@@ -65,25 +63,38 @@ namespace BattleTeam.Scenes.Arena
 			module.SetVariable("World", world);
 		}
 
-		private void AddEnvironmentEntities(ArenaEnvironment environment)
+		private void AddEnvironmentEntities(List<Team> teams)
 		{
-			Requires.NotNull(environment, nameof(environment));
+			Requires.NotNull(teams, nameof(teams));
 
 			List<Entity> Walls = new List<Entity>();
-			this.EntityManager.Add(environment.TopWall);
-			this.EntityManager.Add(environment.BottomWall);
-			this.EntityManager.Add(environment.LeftWall);
-			this.EntityManager.Add(environment.RightWall);
+			this.EntityManager.Add(Statics.CreateTopWall());
+			this.EntityManager.Add(Statics.CreateBottomWall());
+			this.EntityManager.Add(Statics.CreateLeftWall());
+			this.EntityManager.Add(Statics.CreateRightWall());
 
-			foreach (Entity member in environment.Characters)
+			foreach (Entity entity in GetCharactersFromMembers(teams))
 			{
-				this.EntityManager.Add(member);
+				this.EntityManager.Add(entity);
 			}
 		}
 
 		protected override void Start()
 		{
 			base.Start();
+		}
+
+		private static IEnumerable<Entity> GetCharactersFromMembers(List<Team> teams)
+		{
+			Requires.NotNull(teams, nameof(teams));
+
+			foreach (Team team in teams)
+			{
+				foreach (Member member in team.GetMembers().Array)
+				{
+					yield return Characters.CreateCharacter(member);
+				}
+			}
 		}
 	}
 }

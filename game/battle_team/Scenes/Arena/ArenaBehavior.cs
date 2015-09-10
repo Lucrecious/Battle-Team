@@ -18,18 +18,15 @@ namespace BattleTeam.Scenes.Arena
 	internal class ArenaBehavior : SceneBehavior
 	{
 		private readonly ImmutableArray<Team> teams;
-		private readonly ArenaEnvironment environment;
 		private readonly World world;
 
 		private bool moduleInitialized = false;
 
-		internal ArenaBehavior(ArenaEnvironment environment, World world, List<Team> teams)
+		internal ArenaBehavior(World world, List<Team> teams)
 		{
-			Requires.NotNull(environment, nameof(environment));
 			Requires.NotNull(world, nameof(world));
 			Requires.NotNull(teams, nameof(teams));
 
-			this.environment = environment;
 			this.world = world;
 			this.teams = teams.ToImmutableArray();
 		}
