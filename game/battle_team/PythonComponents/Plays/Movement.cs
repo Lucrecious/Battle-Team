@@ -17,10 +17,17 @@ namespace BattleTeam.PythonComponents.Plays
 		/// <param name="y">The amount of movement in the y direction</param>
 		public Movement(float x, float y)
 		{
-			var vector = new Vector2(x, y);
-			vector.Normalize();
+			if (x == 0 && y == 0)
+			{
+				this.moveDirection = Vector2.Zero;
+			}
+			else
+			{
+				var vector = new Vector2(x, y);
+				vector.Normalize();
 
-			this.moveDirection = vector;
+				this.moveDirection = vector;
+			}
 		}
 
 		/// <summary>
@@ -29,8 +36,15 @@ namespace BattleTeam.PythonComponents.Plays
 		/// <param name="direction">A vector that represents the direction of movement</param>
 		public Movement(Vector2 direction)
 		{
-			direction.Normalize();
-			this.moveDirection = direction;
+			if (direction.X == 0 && direction.Y == 0)
+			{
+				this.moveDirection = Vector2.Zero;
+			}
+			else
+			{
+				direction.Normalize();
+				this.moveDirection = direction;
+			}
 		}
 
 		public Vector2 GetMoveDirection() => this.moveDirection;

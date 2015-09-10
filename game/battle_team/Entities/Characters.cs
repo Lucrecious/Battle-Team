@@ -35,7 +35,7 @@ namespace BattleTeam.Entities
 			throw new NotImplementedException();
 		}
 
-		internal static Entity GetCharacter(Member member)
+		internal static Entity CreateCharacter(Member member)
 		{
 			Requires.NotNull(member, nameof(member));
 
@@ -50,6 +50,22 @@ namespace BattleTeam.Entities
 			.AddComponent(new SpriteRenderer(DefaultLayers.Alpha, samplerMode: AddressMode.PointClamp))
 			.AddComponent(new Sprite(ClassToSpritePath[member.GetClass()]))
 			.AddComponent(CreateCharacterBehaviorFromMember(member));
+		}
+
+		internal static Entity CreateBullet(Member shooter, Vector2 position, Vector2 direction)
+		{
+			Requires.NotNull(shooter, nameof(shooter));
+
+			return new Entity()
+				.AddComponent(new RectangleCollider())
+				.AddComponent(new Transform2D()
+				{
+					Origin = new Vector2(0.5f, 0.5f),
+					Position = position
+				})
+				.AddComponent(new SpriteRenderer(DefaultLayers.Alpha, samplerMode: AddressMode.PointClamp))
+				.AddComponent(new Sprite("Content/bullet"))
+				.AddComponent(new BulletBehavior(shooter, direction));
 		}
 	}
 }

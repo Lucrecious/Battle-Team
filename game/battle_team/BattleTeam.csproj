@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Behaviors\BulletBehavior.cs" />
     <Compile Include="Entities\Behaviors\CharacterBehavior.cs" />
     <Compile Include="Entities\Behaviors\GunnerBehavior.cs" />
     <Compile Include="Entities\Cameras.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Entities\Statics.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Entities\Text.cs" />
+    <Compile Include="PythonComponents\Objects\Bullet.cs" />
     <Compile Include="PythonComponents\Plays\Attack.cs" />
     <Compile Include="PythonComponents\Plays\Healing.cs" />
     <Compile Include="PythonComponents\Plays\Message.cs" />

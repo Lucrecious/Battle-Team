@@ -48,7 +48,7 @@ namespace BattleTeam.Scenes.Arena
 				{
 					for (int i = 0; i < team.GetMembers().GetLength(); ++i)
 					{
-						characters.Add(Entities.Characters.GetCharacter(team.GetMembers().Get(i)));
+						characters.Add(Entities.Characters.CreateCharacter(team.GetMembers().Get(i)));
                     }
 				}
 			}
