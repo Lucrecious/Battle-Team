@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BattleTeam.Shared;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Common.Math;
 using WaveEngine.Components.Gestures;
@@ -18,7 +19,7 @@ namespace BattleTeam.PythonComponents
 	{
 		public static readonly Entity PlayButton = new Entity()
 		{
-			Tag = "text"
+			Tag = Constants.Tags.Text
 		}
 			.AddComponent(new Transform2D()
 			{

@@ -48,9 +48,8 @@ namespace BattleTeam.Scenes.Arena
 			}
 
 			this.BoundMembersByWalls();
-			ImmutableDictionary<Entity, Bullet> entityBullet = this.GetLiveBullets();
 
-			this.world.Bullets = new ImmutablePythonList<Bullet>(entityBullet.Values.ToImmutableArray());
+			this.world.Bullets = new ImmutablePythonList<Bullet>(this.GetLiveBullets());
 
 			foreach (Team team in this.teams)
 			{
@@ -58,28 +57,28 @@ namespace BattleTeam.Scenes.Arena
 			}
 		}
 
-		private ImmutableDictionary<Entity, Bullet> GetLiveBullets()
+		private ImmutableArray<Bullet> GetLiveBullets()
 		{
-			Dictionary<Entity, Bullet> bullets = new Dictionary<Entity, Bullet>();
+			List<Bullet> bullets = new List<Bullet>();
 
-			foreach (Entity entity in this.Scene.EntityManager.AllEntities)
+			foreach (Entity entity in this.Scene.EntityManager.FindAllByTag(Constants.Tags.Bullet))
 			{
 				Behavior behavior = entity.FindComponent<BulletBehavior>();
 				if (behavior as BulletBehavior != null)
 				{
-					bullets[entity] = ((BulletBehavior)behavior).Bullet;
+					bullets.Add(((BulletBehavior)behavior).Bullet);
 				}
 			}
 
-			return bullets.ToImmutableDictionary();
+			return bullets.ToImmutableArray();
 		}
 
 		private void BoundMembersByWalls()
 		{
-			foreach (Entity wall in this.environment.Walls)
+			foreach (Entity wall in this.Scene.EntityManager.FindAllByTag(Constants.Tags.Wall))
 			{
 				var wallCollider = wall.FindComponent<RectangleCollider>();
-				foreach (Entity member in this.environment.Characters)
+				foreach (Entity member in this.Scene.EntityManager.FindAllByTag(Constants.Tags.Member))
 				{
 					var memberCollider = member.FindComponent<RectangleCollider>();
 					this.PushMemberOutOfWall(member, memberCollider, wallCollider);
@@ -112,7 +111,7 @@ namespace BattleTeam.Scenes.Arena
 
 			List<RectangleF> rectangles = new List<RectangleF>();
 
-			foreach (Entity entity in this.environment.Walls)
+			foreach (Entity entity in this.Scene.EntityManager.FindAllByTag(Constants.Tags.Wall))
 			{
 				var trans2D = entity.FindComponent<Transform2D>();
 				var rect = entity.FindComponent<RectangleCollider>().Transform2D.Rectangle;

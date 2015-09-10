@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using BattleTeam.Entities.Behaviors;
 using BattleTeam.PythonComponents.Team;
+using BattleTeam.Shared;
 using Validation;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Common.Math;
@@ -41,7 +42,7 @@ namespace BattleTeam.Entities
 
 			return new Entity()
 			{
-				Tag = "member"
+				Tag = Constants.Tags.Member
 			}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
@@ -60,7 +61,7 @@ namespace BattleTeam.Entities
 
 			return new Entity()
 			{
-				Tag = "bullet"
+				Tag = Constants.Tags.Bullet
 			}
 				.AddComponent(new RectangleCollider())
 				.AddComponent(new Transform2D()

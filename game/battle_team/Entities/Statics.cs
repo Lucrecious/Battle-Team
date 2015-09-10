@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BattleTeam.Shared;
 using WaveEngine.Components.Graphics2D;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
@@ -15,7 +16,7 @@ namespace BattleTeam.Entities
 	{
 		internal static Entity CreateTopWall() => new Entity()
 		{
-			Tag = "wall"
+			Tag = Constants.Tags.Wall
 		}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
@@ -28,7 +29,7 @@ namespace BattleTeam.Entities
 
 		internal static Entity CreateBottomWall() => new Entity()
 		{
-			Tag = "wall"
+			Tag = Constants.Tags.Wall
 		}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
@@ -41,7 +42,7 @@ namespace BattleTeam.Entities
 
 		internal static Entity CreateLeftWall() => new Entity()
 		{
-			Tag = "wall"
+			Tag = Constants.Tags.Wall
 		}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
@@ -54,7 +55,7 @@ namespace BattleTeam.Entities
 
 		internal static Entity CreateRightWall() => new Entity()
 		{
-			Tag = "wall"
+			Tag = Constants.Tags.Wall
 		}
 			.AddComponent(new RectangleCollider())
 			.AddComponent(new Transform2D()
