@@ -89,7 +89,7 @@
     <Compile Include="Entities\Behaviors\BulletBehavior.cs" />
     <Compile Include="Entities\Behaviors\CharacterBehavior.cs" />
     <Compile Include="Entities\Behaviors\GunnerBehavior.cs" />
-    <Compile Include="Entities\Behaviors\LivingBehavior.cs" />
+    <Compile Include="Entities\Behaviors\EndableBehavior.cs" />
     <Compile Include="Entities\Cameras.cs" />
     <Compile Include="Entities\Characters.cs" />
     <Compile Include="Entities\Statics.cs" />
@@ -111,7 +111,7 @@
     <Compile Include="PythonComponents\Environment\World.cs" />
     <Compile Include="Scenes\Arena\ArenaBehavior.cs" />
     <Compile Include="Shared\Constants.cs" />
-    <Compile Include="Shared\Physics2DExtensions.cs" />
+    <Compile Include="Shared\WaveEngineExtensions.cs" />
     <Compile Include="Shared\Utilities.cs" />
     <Compile Include="Scenes\Arena\Arena.cs" />
     <Compile Include="Scenes\StartMenu.cs" />

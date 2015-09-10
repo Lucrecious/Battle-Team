@@ -7,11 +7,11 @@ using WaveEngine.Framework;
 
 namespace BattleTeam.Entities.Behaviors
 {
-	internal class LivingBehavior : Behavior
+	internal class EndableBehavior : Behavior
 	{
 		private bool isDead = false;
 
-		internal void End()
+		internal void MarkAsDead()
 		{
 			this.isDead = true;
 		}

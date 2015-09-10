@@ -12,7 +12,7 @@ namespace BattleTeam.Shared
 	/// <summary>
 	/// Gives a little more functionality and flexibility to the rectangle collider from the Wave Engine
 	/// </summary>
-	public static class Physics2DExtensions
+	public static class WaveEngineExtensions
 	{
 		/// <summary>
 		/// Gets whether or not the rectangle colliders intersect. This is based off multiple

@@ -24,6 +24,23 @@ namespace BattleTeam.Entities.Behaviors
 
 		internal abstract void UseAttack();
 
+		internal bool DealDamageToMemberOrFail(Member sender, string tag)
+		{
+			if (sender == null)
+			{
+				return false;
+			}
+
+			if (!sender.GetTeam().GetMembers().Array.Contains(this.Member))
+			{
+				// Here I'd use the tag to calculate the correct amount of damage (given the weapon)
+				this.Member.Heal(-1);
+				return true;
+			}
+
+			return false;
+		}
+
 		protected override void Update(TimeSpan gameTime)
 		{
 			this.Member.Position = this.Trans2D.Position;

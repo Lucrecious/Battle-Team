@@ -11,7 +11,7 @@ using WaveEngine.Framework.Graphics;
 
 namespace BattleTeam.Entities.Behaviors
 {
-	internal class BulletBehavior : LivingBehavior
+	internal class BulletBehavior : EndableBehavior
 	{
 		internal Bullet Bullet { get; }
 

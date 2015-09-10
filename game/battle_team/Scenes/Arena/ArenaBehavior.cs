@@ -72,23 +72,35 @@ namespace BattleTeam.Scenes.Arena
 
 					if (damagerCollider.Intersects(otherCollider))
 					{
-						switch (other.Tag)
+						bool isGhost = false;
+						if (other.Tag == Constants.Tags.Member)
 						{
-							case Constants.Tags.Wall:
-								{
-									// This only applies to the bullet, the sword ends
-									//   after its animation is finished playing.
-									if (damager.Tag == Constants.Tags.Bullet)
-									{
-										damager.FindComponent<BulletBehavior>().End();
-									}
+							CharacterBehavior behavior = other.FindComponent<CharacterBehavior>(isExactType: false);
+							if (!behavior.DealDamageToMemberOrFail(this.GetDamageSender(behavior), damager.Tag))
+							{
+								isGhost = true;
+							}
+						}
 
-									break;
-								}
+						if (!isGhost && damager.Tag == Constants.Tags.Bullet)
+						{
+							damager.FindComponent<BulletBehavior>().MarkAsDead();
 						}
 					}
 				}
 			}
+		}
+
+		private Member GetDamageSender(CharacterBehavior behavior)
+		{
+			Requires.NotNull(behavior, nameof(behavior));
+
+			if (behavior.Owner.Tag == Constants.Tags.Bullet)
+			{
+				return behavior.Owner.FindComponent<BulletBehavior>().Bullet.GetShooter();
+			}
+
+			return null;
 		}
 
 		private ImmutableArray<Bullet> GetLiveBullets()
